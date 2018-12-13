@@ -1,0 +1,27 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: api-gateway
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone:   http://127.0.0.1:10086/eureka
+    registry-fetch-interval-seconds: 5
+zuul:
+  prefix: /api # \u6DFB\u52A0\u8DEF\u7531\u524D\u7F00
+  retryable: true
+ribbon:
+  ConnectTimeout: 250 # \u8FDE\u63A5\u8D85\u65F6\u65F6\u95F4(ms)
+  ReadTimeout: 2000 # \u901A\u4FE1\u8D85\u65F6\u65F6\u95F4(ms)
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillisecond: 10000 # \u7194\u65AD\u8D85\u65F6\u65F6\u957F\uFF1A10000ms
