@@ -17,7 +17,7 @@
               <img src="../assets/2.jpeg">
             </v-list-tile-avatar>
             <v-list-tile-content>
-              <v-list-tile-title>社会我拓哥</v-list-tile-title>
+              <v-list-tile-title>帅得发骚</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
