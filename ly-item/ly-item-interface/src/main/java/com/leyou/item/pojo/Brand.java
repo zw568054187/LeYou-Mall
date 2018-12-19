@@ -8,18 +8,20 @@ import javax.persistence.Table;
 
 /**
  * @author zhangwei
- * @date 2018/12/17 19:58
+ * @date 2018/12/19 19:47
  */
-@Table(name="tb_category")
 @Data
-public class Category {
+@Table(name = "tb_brand")
+public class Brand {
+    /**
+     * id
+     * 品牌名称
+     * 品牌图片
+     */
     @Id
     @KeySql(useGeneratedKeys = true)
     private Long id;
     private String name;
-    private Long parentId;
-    private Boolean isParent;
-    private Integer sort;
-
-
+    private String image;
+    private Character letter;
 }

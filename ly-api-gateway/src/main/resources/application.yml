@@ -17,6 +17,10 @@ zuul:
   retryable: true
   routes:
     item-service: /item/**
+    upload-service:
+      path: /upload/**
+      serviceId: upload-service
+      strip-prefix: false
 ribbon:
   ConnectTimeout: 250 # \u8FDE\u63A5\u8D85\u65F6\u65F6\u95F4(ms)
   ReadTimeout: 2000 # \u901A\u4FE1\u8D85\u65F6\u65F6\u95F4(ms)

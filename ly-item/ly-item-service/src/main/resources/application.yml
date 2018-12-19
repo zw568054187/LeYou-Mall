@@ -15,5 +15,9 @@ eureka:
     prefer-ip-address: true
     ip-address: 127.0.0.1
     instance-id: ${spring.application.name}:${server.port}
-    lease-expiration-duration-in-seconds: 10 # 10\u79D2\u4E0D\u53D1\u9001\u5C31\u8FC7\u671F
-    lease-renewal-interval-in-seconds: 5 # \u6BCF\u96945\u79D2\u53D1\u9001\u4E00\u6B21\u5FC3\u8DF3
+    lease-expiration-duration-in-seconds: 10
+    lease-renewal-interval-in-seconds: 5
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

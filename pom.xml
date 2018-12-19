@@ -12,6 +12,7 @@
         <module>ly-api-gateway</module>
         <module>ly-item</module>
         <module>ly-common</module>
+        <module>ly-upload</module>
     </modules>
     <packaging>pom</packaging>
     <name>leyou</name>
@@ -85,6 +86,10 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 

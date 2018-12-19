@@ -5,7 +5,7 @@
       <!--搜索框，与search属性关联-->
       <v-spacer/>
       <v-flex xs3>
-      <v-text-field label="输入关键字搜索" v-model.lazy="search" append-icon="search" hide-details/>
+        <v-text-field label="输入关键字搜索" v-model.lazy="search" append-icon="search" hide-details/>
       </v-flex>
     </v-card-title>
     <v-divider/>
@@ -43,7 +43,9 @@
           <v-toolbar-title>{{isEdit ? '修改' : '新增'}}品牌</v-toolbar-title>
           <v-spacer/>
           <!--关闭窗口的按钮-->
-          <v-btn icon @click="closeWindow"><v-icon>close</v-icon></v-btn>
+          <v-btn icon @click="closeWindow">
+            <v-icon>close</v-icon>
+          </v-btn>
         </v-toolbar>
         <!--对话框的内容，表单-->
         <v-card-text class="px-5" style="height:400px">
@@ -84,6 +86,9 @@
       this.getDataFromServer();
     },
     watch: {
+      key(){
+        this.pagination.page=1;
+      },
       pagination: { // 监视pagination属性的变化
         deep: true, // deep为true，会监视pagination的属性及属性中的对象属性变化
         handler() {
@@ -123,7 +128,7 @@
         // 把oldBrand变为null
         this.oldBrand = null;
       },
-      editBrand(oldBrand){
+      editBrand(oldBrand) {
         // 根据品牌信息查询商品分类
         this.$http.get("/item/category/bid/" + oldBrand.id)
           .then(({data}) => {
@@ -137,15 +142,15 @@
             this.oldBrand.categories = data;
           })
       },
-      closeWindow(){
+      closeWindow() {
         // 重新加载数据
         this.getDataFromServer();
         // 关闭窗口
         this.show = false;
       }
     },
-    components:{
-        BrandForm
+    components: {
+      BrandForm
     }
   }
 </script>

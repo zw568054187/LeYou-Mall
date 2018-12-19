@@ -23,6 +23,7 @@ export default new Router({
       redirect:"/index/dashboard",
       children:[ // 其它所有组件都是 Layout的子组件
         route("/index/dashboard","/Dashboard","Dashboard"),
+        //第一个参数:路径 第二个参数:对应组件的位置
         route("/item/category",'/item/Category',"Category"),
         route("/item/brand",'/item/Brand',"Brand"),
         route("/item/list",'/item/Goods',"Goods"),
