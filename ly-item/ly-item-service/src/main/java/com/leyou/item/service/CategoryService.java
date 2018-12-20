@@ -15,7 +15,7 @@ import java.util.List;
  * @date 2018/12/17 20:05
  */
 @Service
-public class CategoryService {
+public class  CategoryService {
     @Autowired
     private CategoryMapper categoryMapper;
     public List<Category> queryByParentId(Long pid) {

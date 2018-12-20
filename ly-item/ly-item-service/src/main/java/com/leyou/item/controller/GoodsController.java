@@ -18,7 +18,7 @@ public class GoodsController {
     @Autowired
     private GoodsService goodsService;
 
-    @GetMapping("/spu/page")
+    @GetMapping("spu/page")
     public ResponseEntity<PageResult<Spu>> querySpuByPage(
             @RequestParam(value = "page",defaultValue = "1")Integer page,
             @RequestParam(value = "rows",defaultValue = "5")Integer rows,

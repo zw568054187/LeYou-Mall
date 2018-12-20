@@ -29,7 +29,7 @@ public class GoodsService {
     private SpuMapper spuMapper;
 
     @Autowired
-    private SpuDetailMapper spuDetailMapper;
+    private SpuDetailMapper detailMapper;
 
     @Autowired
     private CategoryService categoryService;
@@ -39,7 +39,7 @@ public class GoodsService {
 
     public PageResult<Spu> querySpuByPage(Integer page, Integer rows, Boolean saleable, String key) {
         //分页
-        PageHelper.startPage(page, rows);
+        PageHelper.startPage(page, Math.min(rows, 100));
         //过滤
         Example example = new Example(Spu.class);
         Example.Criteria criteria = example.createCriteria();
@@ -49,12 +49,13 @@ public class GoodsService {
         }
         //上下架过滤
         if (saleable!=null){
-            criteria.andEqualTo("saleBle",saleable);
+            criteria.andEqualTo("saleable",saleable);
         }
         //默认排序
-        example.setOrderByClause("lastUpdateTime desc");
+        example.setOrderByClause("last_update_time DESC");
         //查询
         List<Spu> spus = spuMapper.selectByExample(example);
+
         if (CollectionUtils.isEmpty(spus)) {
             throw new LyException(ExceptionEnum.GOODS_NOT_FOUND);
         }
@@ -73,7 +74,7 @@ public class GoodsService {
                     .stream().map(Category::getName).collect(Collectors.toList());
             spu.setCname(StringUtils.join(names,"/"));
             //处理品牌名称
-            spu.setBname(brandService.queryById(spu.getId()).getName());
+            spu.setBname(brandService.queryById(spu.getBrandId()).getName());
         }
     }
 }
