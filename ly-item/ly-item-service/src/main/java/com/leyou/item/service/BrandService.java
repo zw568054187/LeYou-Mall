@@ -27,18 +27,18 @@ public class BrandService {
 
     public PageResult<Brand> queryBrandByPage(Integer page, Integer rows, String sortBy, Boolean desc, String key) {
         //分页
-        PageHelper.startPage(page,rows);
+        PageHelper.startPage(page, rows);
 
         //过滤
         Example example = new Example(Brand.class);
-        if (StringUtils.isNoneBlank(key)){
+        if (StringUtils.isNoneBlank(key)) {
             //过滤条件
-            example.createCriteria().orLike("name","%"+key+"%").orEqualTo("letter",key.toUpperCase());
+            example.createCriteria().orLike("name", "%" + key + "%").orEqualTo("letter", key.toUpperCase());
         }
 
         //排序
-        if (StringUtils.isNoneBlank(sortBy)){
-            String orderByClause = sortBy+(desc? " DESC":" ASC");
+        if (StringUtils.isNoneBlank(sortBy)) {
+            String orderByClause = sortBy + (desc ? " DESC" : " ASC");
             example.setOrderByClause(orderByClause);
         }
 
@@ -50,8 +50,9 @@ public class BrandService {
 
         //解析分页结果
         PageInfo<Brand> pageInfo = new PageInfo<>(list);
-        return new PageResult<>(pageInfo.getTotal(),list);
+        return new PageResult<>(pageInfo.getTotal(), list);
     }
+
     /**
      * 添加事务
      */
@@ -71,5 +72,13 @@ public class BrandService {
             }
         }
 
+    }
+
+    public Brand queryById(Long id){
+        Brand brand = brandMapper.selectByPrimaryKey(id);
+        if (brand == null) {
+            throw new LyException(ExceptionEnum.BRAND_NOT_FOUND);
+        }
+        return brand;
     }
 }

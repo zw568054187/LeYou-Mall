@@ -8,7 +8,7 @@ import java.util.List;
  * @author zhangwei
  * @date 2018/12/19 19:58
  */
-//view obiect 渲染视图给页面用的
+//value obiect 渲染视图给页面用的
 @Data
 public class PageResult<T>{
     /**
