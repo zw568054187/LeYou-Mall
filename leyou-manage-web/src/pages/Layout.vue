@@ -14,7 +14,7 @@
         <v-list class="pa-0">
           <v-list-tile avatar>
             <v-list-tile-avatar>
-              <img src="../assets/2.jpeg">
+              <img src="../assets/1.jpeg">
             </v-list-tile-avatar>
             <v-list-tile-content>
               <v-list-tile-title>帅得发骚</v-list-tile-title>

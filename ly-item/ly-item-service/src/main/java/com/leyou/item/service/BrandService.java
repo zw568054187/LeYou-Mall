@@ -56,7 +56,7 @@ public class BrandService {
     /**
      * 添加事务
      */
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void saveBrand(Brand brand, List<Long> cids) {
         //新增品牌
         brand.setId(null);
@@ -80,5 +80,13 @@ public class BrandService {
             throw new LyException(ExceptionEnum.BRAND_NOT_FOUND);
         }
         return brand;
+    }
+
+    public List<Brand> queryBrandByCid(Long cid) {
+        List<Brand> list = brandMapper.queryBrandByCid(cid);
+        if (CollectionUtils.isEmpty(list)) {
+            throw new LyException(ExceptionEnum.BRAND_NOT_FOUND);
+        }
+        return list;
     }
 }
