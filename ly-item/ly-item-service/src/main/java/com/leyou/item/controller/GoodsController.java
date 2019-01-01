@@ -22,6 +22,14 @@ public class GoodsController {
     @Autowired
     private GoodsService goodsService;
 
+    /**
+     * 分页查询spu
+     * @param page
+     * @param rows
+     * @param saleable
+     * @param key
+     * @return
+     */
     @GetMapping("spu/page")
     public ResponseEntity<PageResult<Spu>> querySpuByPage(
             @RequestParam(value = "page",defaultValue = "1")Integer page,
