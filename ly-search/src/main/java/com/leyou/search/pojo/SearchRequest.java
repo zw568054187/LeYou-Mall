@@ -1,5 +1,7 @@
 package com.leyou.search.pojo;
 
+import java.util.Map;
+
 /**
  * @author zhangwei
  * @date 2018/12/28 17:15
@@ -13,6 +15,8 @@ public class SearchRequest {
      */
     private String key;
     private Integer page;
+
+    private Map<String,String> filter;
     private static final Integer DEFAULT_SIZE = 20;
     private static final Integer DEFAULT_PAGE = 1;
     public String getKey() {
@@ -39,4 +43,7 @@ public class SearchRequest {
         return DEFAULT_SIZE;
     }
 
+    public Map<String, String> getFilter() {
+        return filter;
+    }
 }
