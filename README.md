@@ -7,3 +7,4 @@
 后台业务逻辑的实现:ly-item<br>
 eureka注册中心:ly-registry<br>
 上传图片的服务:ly-upload<br>
+商品详情页(thymeleaf后台处理,渲染页面返回):ly-goods-page<br>
