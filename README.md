@@ -1,7 +1,7 @@
 # LeYou-Mall
 这是一个乐优商城的电商项目<br>
-这是后台的的界面管理:leyou-manage-web<br>
-这是前端显示给用户的界面:leyou-porta<br>
+这是后台的的界面管理:leyou-manage-web<br>  运行命令:npm run dev
+这是前端显示给用户的界面:leyou-porta<br> 运行命令:live-server--port=9002
 网关:ly-api-gateway<br>
 工具类:ly-common<br>
 后台业务逻辑的实现:ly-item<br>
